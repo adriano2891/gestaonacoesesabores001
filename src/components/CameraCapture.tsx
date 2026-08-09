@@ -97,7 +97,7 @@ export const CameraCapture: React.FC<CameraCaptureProps> = ({
   };
 
   return (
-    <div id="camera-capture-modal" className="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex flex-col justify-between p-4 sm:p-6 text-white animate-fade-in">
+    <div id="camera-capture-modal" className="fixed inset-0 z-50 bg-slate-900/90 backdrop-blur-md flex flex-col justify-between p-4 sm:p-6 text-white animate-fade-in">
       
       {/* Top Bar */}
       <div className="flex items-center justify-between z-10">
@@ -123,7 +123,7 @@ export const CameraCapture: React.FC<CameraCaptureProps> = ({
       </div>
 
       {/* Camera Viewfinder */}
-      <div className="relative flex-1 my-4 flex items-center justify-center overflow-hidden rounded-2xl bg-black border border-slate-800 shadow-2xl">
+      <div className="relative flex-1 my-4 flex items-center justify-center overflow-hidden rounded-2xl bg-black shadow-2xl">
         {cameraError ? (
           <div className="p-6 text-center max-w-md">
             <div className="w-12 h-12 rounded-full bg-rose-900/50 text-rose-300 flex items-center justify-center mx-auto mb-3">
@@ -177,7 +177,7 @@ export const CameraCapture: React.FC<CameraCaptureProps> = ({
 
       {/* Captured Photos Reel (For Multi-page / Intensive Mode) */}
       {capturedPhotos.length > 0 && (
-        <div className="mb-4 bg-slate-900/80 border border-slate-800 rounded-xl p-2.5 overflow-x-auto flex items-center gap-3">
+        <div className="mb-4 bg-slate-900/80 border border-slate-700 rounded-xl p-2.5 overflow-x-auto flex items-center gap-3">
           <div className="text-xs font-medium text-slate-400 pl-1 shrink-0">
             Capturas ({capturedPhotos.length}):
           </div>
@@ -200,7 +200,7 @@ export const CameraCapture: React.FC<CameraCaptureProps> = ({
       )}
 
       {/* Controls Footer */}
-      <div className="flex items-center justify-around gap-4 pt-2 border-t border-slate-800/80">
+      <div className="flex items-center justify-around gap-4 pt-2 border-t border-slate-700/80">
         
         <button
           onClick={onCancel}
@@ -227,7 +227,7 @@ export const CameraCapture: React.FC<CameraCaptureProps> = ({
           id="finish-camera-btn"
           onClick={handleFinish}
           disabled={capturedPhotos.length === 0}
-          className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-800 disabled:text-slate-600 text-white font-semibold text-sm flex items-center gap-2 shadow-lg shadow-emerald-900/30 transition-all"
+          className="px-5 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-500 disabled:bg-slate-800 disabled:text-slate-600 text-white font-semibold text-sm flex items-center gap-2 shadow-lg shadow-teal-900/30 transition-all"
         >
           <Check className="w-4 h-4" />
           Processar ({capturedPhotos.length})
