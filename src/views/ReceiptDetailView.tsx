@@ -22,6 +22,7 @@ export const ReceiptDetailView: React.FC<ReceiptDetailViewProps> = ({
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
   useEffect(() => {
     const fetchReceiptDetail = async () => {
@@ -95,11 +96,7 @@ export const ReceiptDetailView: React.FC<ReceiptDetailViewProps> = ({
 
           <button
             id="btn-delete-receipt-detail"
-            onClick={() => {
-              if (confirm('Deseja realmente remover esta nota fiscal?')) {
-                onDelete(receipt.id);
-              }
-            }}
+            onClick={() => setShowDeleteConfirm(true)}
             className="px-3 py-2 bg-slate-100 hover:bg-rose-50 text-slate-600 hover:text-rose-700 border border-slate-200 rounded-xl text-xs font-semibold transition-colors"
             title="Excluir Nota"
           >
@@ -107,6 +104,48 @@ export const ReceiptDetailView: React.FC<ReceiptDetailViewProps> = ({
           </button>
         </div>
       </div>
+
+      {/* Delete Confirmation Modal */}
+      {showDeleteConfirm && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-sm">
+          <div className="bg-white rounded-2xl shadow-xl max-w-sm w-full p-6 space-y-6">
+            <div className="text-center space-y-2">
+              <div className="w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Trash2 className="w-6 h-6 text-rose-600" />
+              </div>
+              <h3 className="text-lg font-bold text-slate-900">Excluir Nota Fiscal</h3>
+              <p className="text-sm text-slate-500">
+                Tem certeza que deseja excluir esta nota fiscal? Esta ação não poderá ser desfeita.
+              </p>
+            </div>
+            
+            <div className="flex gap-3">
+              <button
+                onClick={() => setShowDeleteConfirm(false)}
+                className="flex-1 px-4 py-2 bg-slate-100 text-slate-700 font-bold rounded-xl hover:bg-slate-200 transition-colors text-sm"
+              >
+                Cancelar
+              </button>
+              <button
+                onClick={async () => {
+                  setShowDeleteConfirm(false);
+                  try {
+                    const res = await fetch(`/api/receipts/${receipt.id}`, { method: 'DELETE' });
+                    if (res.ok) {
+                      onDelete(receipt.id);
+                    }
+                  } catch (err) {
+                    console.error('Erro ao excluir:', err);
+                  }
+                }}
+                className="flex-1 px-4 py-2 bg-rose-600 text-white font-bold rounded-xl hover:bg-rose-700 transition-colors text-sm"
+              >
+                Excluir
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Math Review Banner */}
       {receipt.requiresReview ? (
