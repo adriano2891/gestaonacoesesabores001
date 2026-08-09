@@ -1,5 +1,5 @@
 import React from 'react';
-import { FileText, Camera, List, LogIn, User as UserIcon, ShieldCheck, Zap } from 'lucide-react';
+import { FileText, Camera, List, LogIn, User as UserIcon, ShieldCheck, Zap, BarChart3, Globe, Utensils } from 'lucide-react';
 import { User, ReadingMode } from '../types';
 
 interface HeaderProps {
@@ -29,15 +29,18 @@ export const Header: React.FC<HeaderProps> = ({
           onClick={() => setActiveTab('capture')}
           className="flex items-center gap-3 cursor-pointer group"
         >
-          <div className="w-9 h-9 rounded-xl bg-teal-600 text-white flex items-center justify-center shadow-xs group-hover:bg-teal-700 transition-colors">
-            <FileText className="w-5 h-5 text-white" />
+          <div className="w-10 h-10 rounded-full bg-slate-800 text-white flex items-center justify-center shadow-xs border-2 border-amber-500 group-hover:bg-slate-900 transition-colors relative overflow-hidden">
+            <Globe className="w-7 h-7 text-white/90 absolute opacity-80" />
+            <div className="absolute inset-0 flex items-center justify-between px-1.5">
+              <Utensils className="w-3 h-3 text-amber-400" />
+              <Utensils className="w-3 h-3 text-amber-400 transform scale-x-[-1]" />
+            </div>
           </div>
           <div>
             <div className="flex items-center gap-1.5">
-              <span className="font-bold text-xl tracking-tight text-slate-900">Fiscal<span className="text-teal-600">AI</span></span>
-              <span className="text-[10px] uppercase font-semibold tracking-widest px-1.5 py-0.5 rounded bg-teal-50 text-teal-700 border border-teal-200">PT-BR</span>
+              <span className="font-bold text-lg leading-tight tracking-tight text-slate-900">Sabores e Nações</span>
             </div>
-            <p className="text-xs text-slate-500 -mt-0.5">Captura & Extração de Notas</p>
+            <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500 mt-0.5">Gestão de Notas</p>
           </div>
         </div>
 
@@ -67,6 +70,19 @@ export const Header: React.FC<HeaderProps> = ({
           >
             <List className="w-4 h-4 text-teal-600" />
             Minhas Notas
+          </button>
+
+          <button
+            id="nav-btn-reports"
+            onClick={() => setActiveTab('reports')}
+            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+              activeTab === 'reports'
+                ? 'bg-white text-teal-700 shadow-xs border border-slate-200/60'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/50'
+            }`}
+          >
+            <BarChart3 className="w-4 h-4 text-teal-600" />
+            Relatórios
           </button>
         </nav>
 
@@ -148,25 +164,34 @@ export const Header: React.FC<HeaderProps> = ({
       <div className="md:hidden flex border-t border-slate-200 bg-slate-50 px-2 py-1.5 justify-around text-xs">
         <button
           onClick={() => setActiveTab('capture')}
-          className={`flex items-center gap-1.5 px-3 py-1 rounded-md ${
+          className={`flex flex-col items-center gap-0.5 px-3 py-1 rounded-md ${
             activeTab === 'capture' ? 'bg-teal-600 text-white font-medium' : 'text-slate-600'
           }`}
         >
           <Camera className="w-4 h-4" />
-          Nova Captura
+          Captura
         </button>
         <button
           onClick={() => setActiveTab('receipts')}
-          className={`flex items-center gap-1.5 px-3 py-1 rounded-md ${
+          className={`flex flex-col items-center gap-0.5 px-3 py-1 rounded-md ${
             activeTab === 'receipts' ? 'bg-teal-600 text-white font-medium' : 'text-slate-600'
           }`}
         >
           <List className="w-4 h-4" />
-          Minhas Notas
+          Notas
+        </button>
+        <button
+          onClick={() => setActiveTab('reports')}
+          className={`flex flex-col items-center gap-0.5 px-3 py-1 rounded-md ${
+            activeTab === 'reports' ? 'bg-teal-600 text-white font-medium' : 'text-slate-600'
+          }`}
+        >
+          <BarChart3 className="w-4 h-4" />
+          Relat.
         </button>
         <button
           onClick={() => setActiveTab('auth')}
-          className={`flex items-center gap-1.5 px-3 py-1 rounded-md ${
+          className={`flex flex-col items-center gap-0.5 px-3 py-1 rounded-md ${
             activeTab === 'auth' ? 'bg-teal-600 text-white font-medium' : 'text-slate-600'
           }`}
         >

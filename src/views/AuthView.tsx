@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FileText, LogIn, UserPlus, Check, Sparkles, Mail, Lock, User as UserIcon } from 'lucide-react';
+import { FileText, LogIn, UserPlus, Check, Sparkles, Mail, Lock, User as UserIcon, Globe, Utensils } from 'lucide-react';
 import { User } from '../types';
 
 interface AuthViewProps {
@@ -101,14 +101,18 @@ export const AuthView: React.FC<AuthViewProps> = ({
         
         {/* Brand Top */}
         <div className="text-center space-y-2">
-          <div className="w-12 h-12 bg-teal-600 rounded-2xl flex items-center justify-center mx-auto shadow-xs">
-            <FileText className="w-6 h-6 text-white" />
+          <div className="w-16 h-16 rounded-full bg-slate-800 text-white flex items-center justify-center mx-auto shadow-xs border-[3px] border-amber-500 relative overflow-hidden mb-4">
+            <Globe className="w-11 h-11 text-white/90 absolute opacity-80" />
+            <div className="absolute inset-0 flex items-center justify-between px-2">
+              <Utensils className="w-4 h-4 text-amber-400" />
+              <Utensils className="w-4 h-4 text-amber-400 transform scale-x-[-1]" />
+            </div>
           </div>
           <h1 className="text-xl font-extrabold text-slate-900">
-            {isRegisterMode ? 'Criar Conta no FiscalAI' : 'Acessar o FiscalAI'}
+            {isRegisterMode ? 'Criar Conta' : 'Acessar Sabores e Nações'}
           </h1>
           <p className="text-xs text-slate-500">
-            Gerencie, escaneie e sincronize suas notas fiscais com IA
+            Gestão inteligente de notas fiscais
           </p>
         </div>
 

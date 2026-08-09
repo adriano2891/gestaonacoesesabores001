@@ -34,7 +34,7 @@ export const ReceiptsListView: React.FC<ReceiptsListViewProps> = ({
   const fetchReceipts = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`/api/receipts?userId=${userId}`);
+      const res = await fetch(`/api/receipts?userId=${userId}`, { cache: 'no-store' });
       const json = await res.json();
       if (res.ok && json.success) {
         setReceipts(json.receipts || []);

@@ -5,6 +5,7 @@ import { ReviewView } from './views/ReviewView';
 import { ReceiptsListView } from './views/ReceiptsListView';
 import { ReceiptDetailView } from './views/ReceiptDetailView';
 import { AuthView } from './views/AuthView';
+import { ReportsView } from './views/ReportsView';
 import { User, ReadingMode, Receipt } from './types';
 
 export default function App() {
@@ -114,6 +115,10 @@ export default function App() {
               setActiveTab('receipts');
             }}
           />
+        )}
+
+        {activeTab === 'reports' && (
+          <ReportsView userId={currentUser?.id || 'usr-guest'} />
         )}
 
         {activeTab === 'auth' && (

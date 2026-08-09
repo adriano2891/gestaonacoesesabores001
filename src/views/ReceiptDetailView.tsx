@@ -27,7 +27,7 @@ export const ReceiptDetailView: React.FC<ReceiptDetailViewProps> = ({
     const fetchReceiptDetail = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`/api/receipts/${receiptId}`);
+        const res = await fetch(`/api/receipts/${receiptId}`, { cache: 'no-store' });
         const json = await res.json();
         if (res.ok && json.success) {
           setReceipt(json.receipt);
