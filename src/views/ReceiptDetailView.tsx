@@ -180,7 +180,7 @@ export const ReceiptDetailView: React.FC<ReceiptDetailViewProps> = ({
           <div className="text-left sm:text-right bg-slate-50 px-4 py-2.5 rounded-xl border border-slate-200">
             <div className="text-[10px] uppercase text-slate-500 font-bold">Valor Total Final</div>
             <div className="text-2xl font-extrabold text-teal-700 font-mono">
-              R$ {(Number(receipt.totalAmount) || 0).toFixed(2)}
+              € {(Number(receipt.totalAmount) || 0).toFixed(2)}
             </div>
             <div className="text-[10px] text-slate-500 font-mono mt-0.5">Pagamento: {receipt.paymentMethod}</div>
           </div>
@@ -195,17 +195,17 @@ export const ReceiptDetailView: React.FC<ReceiptDetailViewProps> = ({
 
           <div>
             <span className="text-slate-500 block text-[10px]">Valor Bruto:</span>
-            <span className="text-slate-800 font-mono font-semibold">R$ {(Number(receipt.grossAmount) || 0).toFixed(2)}</span>
+            <span className="text-slate-800 font-mono font-semibold">€ {(Number(receipt.grossAmount) || 0).toFixed(2)}</span>
           </div>
 
           <div>
             <span className="text-slate-500 block text-[10px]">Descontos:</span>
-            <span className="text-amber-700 font-mono font-semibold">R$ {(Number(receipt.discounts) || 0).toFixed(2)}</span>
+            <span className="text-amber-700 font-mono font-semibold">€ {(Number(receipt.discounts) || 0).toFixed(2)}</span>
           </div>
 
           <div>
             <span className="text-slate-500 block text-[10px]">Impostos Declarados:</span>
-            <span className="text-slate-800 font-mono font-semibold">R$ {(Number(receipt.taxesAmount) || 0).toFixed(2)}</span>
+            <span className="text-slate-800 font-mono font-semibold">€ {(Number(receipt.taxesAmount) || 0).toFixed(2)}</span>
           </div>
         </div>
 
@@ -248,13 +248,13 @@ export const ReceiptDetailView: React.FC<ReceiptDetailViewProps> = ({
                     {item.quantity} {item.unit}
                   </td>
                   <td className="p-2.5 text-right text-slate-800">
-                    R$ {(Number(item.unitPrice) || 0).toFixed(2)}
+                    € {(Number(item.unitPrice) || 0).toFixed(2)}
                   </td>
                   <td className="p-2.5 text-right text-amber-700">
-                    R$ {(Number(item.discount) || 0).toFixed(2)}
+                    € {(Number(item.discount) || 0).toFixed(2)}
                   </td>
                   <td className="p-2.5 text-right text-teal-700 font-bold">
-                    R$ {(Number(item.totalPrice) || 0).toFixed(2)}
+                    € {(Number(item.totalPrice) || 0).toFixed(2)}
                   </td>
                 </tr>
               ))}

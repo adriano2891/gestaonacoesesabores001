@@ -16,7 +16,7 @@ export default function App() {
   const [currentUser, setCurrentUser] = useState<User | null>(() => {
     try {
       const saved = localStorage.getItem('fiscal_ai_user');
-      return saved ? JSON.parse(saved) : { id: 'usr-1', name: 'Usuário Demo', email: 'demo@fiscal.ai' };
+      return (saved && saved !== 'undefined') ? JSON.parse(saved) : { id: 'usr-1', name: 'Usuário Demo', email: 'demo@fiscal.ai' };
     } catch {
       return { id: 'usr-1', name: 'Usuário Demo', email: 'demo@fiscal.ai' };
     }
@@ -137,7 +137,7 @@ export default function App() {
       <footer className="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500 mt-auto">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
           <div>
-            <span className="font-bold text-slate-700">FiscalAI</span> — Captura & Extração de Notas Fiscais PT-BR
+            <span className="font-bold text-slate-700">FiscalAI</span> — Captura & Extração de Notas Fiscais PT-PT
           </div>
           <div className="text-[11px] text-slate-500">
             Powered by Gemini AI • Visão Computacional & Validação Numérica

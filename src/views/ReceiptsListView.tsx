@@ -138,7 +138,7 @@ export const ReceiptsListView: React.FC<ReceiptsListViewProps> = ({
         <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-xs">
           <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Total Consolidado</div>
           <div className="text-xl sm:text-2xl font-extrabold text-teal-700 mt-1 font-mono">
-            R$ {totalSpent.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+            € {totalSpent.toLocaleString('pt-PT', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
           </div>
           <div className="text-[10px] text-slate-400 mt-1">{filteredReceipts.length} notas no filtro</div>
         </div>
@@ -154,7 +154,7 @@ export const ReceiptsListView: React.FC<ReceiptsListViewProps> = ({
         <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-xs">
           <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Impostos Discriminados</div>
           <div className="text-xl sm:text-2xl font-extrabold text-slate-800 mt-1 font-mono">
-            R$ {totalTaxes.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+            € {totalTaxes.toLocaleString('pt-PT', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
           </div>
           <div className="text-[10px] text-slate-400 mt-1">ICMS / Trib. declarados</div>
         </div>
@@ -297,7 +297,7 @@ export const ReceiptsListView: React.FC<ReceiptsListViewProps> = ({
                     </td>
 
                     <td className="p-3 text-right font-mono font-extrabold text-teal-700 whitespace-nowrap">
-                      R$ {(Number(r.totalAmount) || 0).toFixed(2)}
+                      € {(Number(r.totalAmount) || 0).toFixed(2)}
                     </td>
 
                     <td className="p-3 text-center">

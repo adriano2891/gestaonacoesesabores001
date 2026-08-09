@@ -278,7 +278,7 @@ export const ReportsView: React.FC<ReportsViewProps> = ({ userId }) => {
     const title = `Relatório Consolidado de Notas Fiscais - ${period.toUpperCase()}`;
 
     // Helper for currency formatting
-    const formatCurrency = (val: number) => `R$ ${val.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    const formatCurrency = (val: number) => `€ ${val.toLocaleString('pt-PT', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
     autoTable(doc, {
       head: [[
@@ -466,7 +466,7 @@ export const ReportsView: React.FC<ReportsViewProps> = ({ userId }) => {
               type="number"
               value={minValue}
               onChange={(e) => setMinValue(e.target.value)}
-              placeholder="R$ 0,00"
+              placeholder="€ 0,00"
               className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-900 focus:outline-none focus:bg-white focus:border-teal-600"
             />
           </div>
@@ -478,7 +478,7 @@ export const ReportsView: React.FC<ReportsViewProps> = ({ userId }) => {
               type="number"
               value={maxValue}
               onChange={(e) => setMaxValue(e.target.value)}
-              placeholder="R$ 999,00"
+              placeholder="€ 999,00"
               className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-900 focus:outline-none focus:bg-white focus:border-teal-600"
             />
           </div>
@@ -562,7 +562,7 @@ export const ReportsView: React.FC<ReportsViewProps> = ({ userId }) => {
                         {receipt.items?.length || 0} {receipt.items?.length === 1 ? 'item' : 'itens'}
                       </span>
                       <span className="font-bold text-slate-800 text-sm">
-                        R$ {(Number(receipt.totalAmount) || 0).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                        € {(Number(receipt.totalAmount) || 0).toLocaleString('pt-PT', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                       </span>
                     </div>
                   </div>
@@ -592,7 +592,7 @@ export const ReportsView: React.FC<ReportsViewProps> = ({ userId }) => {
               <div>
                 <div className="text-[11px] text-slate-500 font-medium">Valor Total Consolidado</div>
                 <div className="text-2xl font-extrabold text-teal-700 font-mono">
-                  R$ {metrics.sumTotalExpenses.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  € {metrics.sumTotalExpenses.toLocaleString('pt-PT', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </div>
               </div>
 
@@ -618,13 +618,13 @@ export const ReportsView: React.FC<ReportsViewProps> = ({ userId }) => {
                 <div className="flex justify-between items-center mt-2">
                   <span className="text-[11px] text-slate-500">Impostos Declarados:</span>
                   <span className="text-xs font-mono font-semibold text-slate-700">
-                    R$ {metrics.sumTaxes.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                    € {metrics.sumTaxes.toLocaleString('pt-PT', { minimumFractionDigits: 2 })}
                   </span>
                 </div>
                 <div className="flex justify-between items-center mt-2">
                   <span className="text-[11px] text-slate-500">Descontos (Itens):</span>
                   <span className="text-xs font-mono font-semibold text-amber-600">
-                    R$ {metrics.sumDiscounts.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                    € {metrics.sumDiscounts.toLocaleString('pt-PT', { minimumFractionDigits: 2 })}
                   </span>
                 </div>
               </div>

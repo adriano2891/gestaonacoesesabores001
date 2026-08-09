@@ -42,7 +42,7 @@ export const ReviewView: React.FC<ReviewViewProps> = ({
     
     if (Math.abs(itemsSum - grossAmount) > 0.02) {
       divergences.push(
-        `A soma do valor total dos itens (R$ ${itemsSum.toFixed(2)}) difere do Valor Bruto (R$ ${grossAmount.toFixed(2)}).`
+        `A soma do valor total dos itens (€ ${itemsSum.toFixed(2)}) difere do Valor Bruto (€ ${grossAmount.toFixed(2)}).`
       );
     }
 
@@ -55,7 +55,7 @@ export const ReviewView: React.FC<ReviewViewProps> = ({
 
     if (Math.abs(calc1 - totalAmount) > 0.02 && Math.abs(calc2 - totalAmount) > 0.02) {
       divergences.push(
-        `Cálculo do total (Bruto R$ ${grossAmount.toFixed(2)} - Desconto R$ ${discounts.toFixed(2)}) = R$ ${calc1.toFixed(2)} difere do Total da Nota (R$ ${totalAmount.toFixed(2)}).`
+        `Cálculo do total (Bruto € ${grossAmount.toFixed(2)} - Desconto € ${discounts.toFixed(2)}) = € ${calc1.toFixed(2)} difere do Total da Nota (€ ${totalAmount.toFixed(2)}).`
       );
     }
 
@@ -68,7 +68,7 @@ export const ReviewView: React.FC<ReviewViewProps> = ({
 
       if (Math.abs(calcItem - tp) > 0.02 && q > 0 && up > 0) {
         divergences.push(
-          `Item ${it.sequence || idx + 1} (${it.originalDescription || 'Produto'}): Qtd (${q}) × Preço (R$ ${up.toFixed(2)}) - Desc (R$ ${disc.toFixed(2)}) = R$ ${calcItem.toFixed(2)}, mas o Total é R$ ${tp.toFixed(2)}.`
+          `Item ${it.sequence || idx + 1} (${it.originalDescription || 'Produto'}): Qtd (${q}) × Preço (€ ${up.toFixed(2)}) - Desc (€ ${disc.toFixed(2)}) = € ${calcItem.toFixed(2)}, mas o Total é € ${tp.toFixed(2)}.`
         );
       }
     });
